@@ -1,0 +1,136 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Unknown </title></head><body>
+<h1 id="smiley-intro-to-oop-and-iot">Smiley: Intro to OOP and IoT</h1>
+<p>Demonstrates key Python OOP concepts and provides the first project's starting code.</p>
+<p>The project presents various smiley faces that appear on the SenseHAT LED matrix. </p>
+<p>The project helps students explore the core pillars of OOP. Specifically:</p>
+<ol>
+<li><strong>Abstraction</strong>: expose objects in terms of how they are used, not how they are implemented</li>
+<li><strong>Polymorphism</strong>: handle different forms in the same way</li>
+<li><strong>Inheritance</strong>: by subclassing a common Smiley class</li>
+<li><strong>Encapsulation</strong>: protect the internal state of objects</li>
+</ol>
+<p>Students are encouraged to play around with the files to get a feel for what's going on.</p>
+<h2 id="working-on-this-project">Working on this project</h2>
+<p>You <strong>must</strong> work against your forked version of this repository:</p>
+<ol>
+<li>From the top-right corner, select <strong>Fork</strong> and follow the prompts.</li>
+<li>Open the terminal (Command Prompt or Git Bash on Windows) and navigate to the desired parent folder for this project.</li>
+<li>Clone the forked repository:</li>
+</ol>
+<p>```bash</p>
+<p>git clone https://github.com/YOUR_USERNAME/civ-ipriot-smiley.git
+```</p>
+<p>Replace <code>YOUR_USERNAME</code> with your GitHub username.</p>
+<ol>
+<li>Navigate to the cloned repository:</li>
+</ol>
+<p>```bash</p>
+<p>cd civ-ipriot-smiley
+```</p>
+<ol>
+<li>Create a new branch:</li>
+</ol>
+<p>```bash</p>
+<p>git checkout -b at2-part1
+```</p>
+<ol>
+<li>Modify the code based on the assessment requirements</li>
+<li>Stage the modifications you made:</li>
+</ol>
+<p>```bash</p>
+<p>git add .
+```</p>
+<ol>
+<li>Commit the changes:</li>
+</ol>
+<p>```bash</p>
+<p>git commit -m "Addressed requirements of the porfolio"
+```</p>
+<ol>
+<li>Push the changes:</li>
+</ol>
+<p>```bash</p>
+<p>git push origin at2-part1
+```</p>
+<h3 id="oh-fork-what-to-do-if-you-didnt-fork">Oh fork: what to do if you didn't fork</h3>
+<blockquote>
+<p>Also, what is a fork anyway?</p>
+</blockquote>
+<p>A fork creates a personal copy of a repository on your own github account.
+What makes the fork a fork (rather than a plain old copy) is that the fork 
+still refers to the repository from whence it came as its <code>upstream</code>.</p>
+<p>This allows you to still pull from the upstream or push from it.</p>
+<p>At a technical level, a clone of a forked repository has your
+copy of the repository as its <code>origin</code> and a reference to the forked 
+repository as <code>upstream</code>.</p>
+<p>If you cloned the original repository, and you want to keep the clone but 
+change it to use your copy:</p>
+<ol>
+<li>Create a fork on GitHub and copy the name of your forked repository. Usually:
+<code>https://github.com/&lt;YOUR_USERNAME&gt;/civ-ipriot-smiley.git</code></li>
+<li>Go to your clone's local directory. </li>
+<li>Run the following command to verify that your current clone is pointing 
+   at the NM-TAFE repo:</li>
+</ol>
+<p><code>bash
+git remote -v</code></p>
+<ol>
+<li>Change the origin to your personal upstream repository:</li>
+</ol>
+<p><code>bash
+git remote set-url origin https://github.com/YOUR_USERNAME/civ-ipriot-smiley.git</code>
+Replace <code>YOUR_USERNAME</code> with, you guessed it, your GitHub username.</p>
+<ol>
+<li>Add the original repository as the upstream:</li>
+</ol>
+<p><code>bash
+git remote add upstream https://github.com/NM-TAFE/civ-ipriot-smiley.git</code></p>
+<ol>
+<li>Optionally, you can fetch any changes that have been made to the original 
+   repository by running:</li>
+</ol>
+<p><code>bash
+git fetch upstream</code></p>
+<h3 id="after-you-have-submitted">After you have submitted</h3>
+<p>You may want to merge the changes back to your <code>main</code> branch.</p>
+<h3 id="stretch-goals">Stretch goals</h3>
+<p>The following are some activities that go beyond the project's basic requirements to teach us more modern software development principles. These activities should only be attempted <strong>after</strong> you have met the project requirements, and they will <strong>not</strong> be assessed.</p>
+<h4 id="favor-composition-over-inheritance-is-a-versus-has-a">Favor composition over inheritance ('is a' versus 'has a')</h4>
+<p>While inheritance was one of the darlings of OOP, in modern software development, it is recognised that inheritance can introduce implicit dependencies (coupling) between various parts of the code. This is captured by the famous adage:</p>
+<blockquote>
+<p>Favour composition over inheritance</p>
+</blockquote>
+<p>Raf's corollary to the above statement is:</p>
+<blockquote>
+<p>If there's some way to state a relationship in terms of <code>has a</code>, then use a <code>has a</code> relationship.</p>
+</blockquote>
+<p>We know what inheritance looks like:</p>
+<p>```python
+Parent:
+   """Do common stuff"""</p>
+<p>Child(Parent):
+    """Do specialised stuff"""
+```</p>
+<p>But what does composition look like in Python?</p>
+<p>Well, here's the crazy thing, you've already been doing composition, you just didn't know it. Let's go back to the very very first OOP example we did:</p>
+<p><code>python
+class Dog:
+    def __init__(self, name, breed):
+        self.name = name
+        self.breed = breed</code></p>
+<p>Where's the composition?</p>
+<p>That's right!</p>
+<p>Remember, in Python, everything is an object!</p>
+<p>So a dog <strong>has a</strong> <code>name</code> string and a dog <strong>has a</strong> <code>breed</code> string. Thus, a dog is <strong>composed</strong> of two strings: name and breed!</p>
+<p>It is the same for any other object, including our own: when we create an instance of a class in another instance of the class, we are now composing one object from another.</p>
+<h5 id="exercise">Exercise</h5>
+<p>Reimagine the relationship between Smiley and Happy. How can we maintain reusability while <em>avoiding</em> inheritance?</p>
+<p><strong>Clues</strong>
+- "Happy <code>has a</code> Smiley?" doesn't sound right, does it?
+- "Smiley <code>has a</code> Happy?" sounds even worse! 
+- What about a Smiley is composed of an Expression?
+- What kind of class would Expression be?</p>
+<h5 id="learn-more">Learn more</h5>
+<p>When we do use inheritance, we tend to favour inheriting from abstractions, not concrete classes. For example, it is pretty helpful to standardise everything that an "Expression" can do so that we can (polymorphically) handle expressions, so it makes sense for Happy, Sad, Etc, to inherit from Expression(ABC) and for Smiley to be composed of an expression (which we can pass at instantiation time).</p>
+<p><a href="https://www.youtube.com/watch?v=hxGOiiR9ZKg">composition &gt; inheritance</a></p>
+</body></html>
